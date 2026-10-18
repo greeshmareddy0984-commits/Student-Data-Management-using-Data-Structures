@@ -33,6 +33,7 @@
          printf("enter a name\n");
          scanf("%s",name);
          stu *p=head,*prev;
+         int c=0,r=0; 
          if(p==0)
          {
                  printf("no records available\n");
@@ -42,13 +43,31 @@
          {
                 if(strcmp(p->name,name)==0)
                 {
-                         if(p==head)
+                      printf("%d %s %f\n",p->rollno,p->name,p->marks);
+                      p=p->next;
+                      c++;
+                }
+         }
+         if(c<1)
+         {
+          printf("no name found\n");
+          return;
+         }
+         p=head;
+         printf("\nenter roll no to your related searching name: \n);
+          scanf("%d",&r);
+         while(p)
+          {
+           if((p->rollno==r) && (strcmp(p->name,name)))
+           {
+                        if(p==head)
                                 head=p->next;
                          else
                                  prev->next=p->next;
                          free(p);
+                         printf("\n data deleted successfully.......\n");
                          return;
-                 }
+           }
                  prev=p;
                  p=p->next;
          }
