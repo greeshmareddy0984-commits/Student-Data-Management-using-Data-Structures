@@ -44,21 +44,21 @@
                 if(strcmp(p->name,name)==0)
                 {
                       printf("%d %s %f\n",p->rollno,p->name,p->marks);
-                      p=p->next;
                       c++;
                 }
+          p=p->next;
          }
-         if(c<1)
+         if(c==0)
          {
           printf("no name found\n");
           return;
          }
          p=head;
-         printf("\nenter roll no to your related searching name: \n);
+         printf("\nenter roll no to  delete your related searching name: \n);
           scanf("%d",&r);
          while(p)
           {
-           if((p->rollno==r) && (strcmp(p->name,name)))
+           if((p->rollno==r) && (strcmp(p->name,name))==0)
            {
                         if(p==head)
                                 head=p->next;
@@ -71,7 +71,7 @@
                  prev=p;
                  p=p->next;
          }
-         printf("name not found\n");
+         printf("rollno and name not found in the list.........\n");
  }
  
 
